@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FOLK - Friends of Lok Kala, preserving and revitalizing rural artistic heritage through community engagement and cultural programs">
+    <title>FOLK - Friends of Lok Kala | Preserving Rural Artistic Heritage</title>
+    <style>
+        :root {
+    --primary: #4A3419;
+    --secondary: #8B6B4C;
+    --accent: #C4A484;
+    --light: #F5E6D3;
+    --dark: #2C1810;
+    --background: #FFF9F2;
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Logo Styles */
+.logo {
+    width: 200px;
+    height: auto;
+    margin: 30px auto;
+    display: block;
+    transition: var(--transition);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Navigation Styles */
+.nav {
+    background-color: var(--primary);
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    position: relative;
+}
+
+.nav-brand {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    position: relative;
+    padding: 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: var(--transition);
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(rgba(74, 52, 25, 0.8), rgba(74, 52, 25, 0.9)),
+                url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--light);
+    padding: 160px 20px;
+    text-align: center;
+    margin-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+}
+
+.header h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.header h2 {
+    font-size: 2.2rem;
+    max-width: 800px;
+    margin: 0 auto 15px;
+    opacity: 0.95;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.header h3 {
+    font-size: 1.8rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-weight: 400;
+    position: relative;
+}
+
+/* Folk Pattern */
+.folk-pattern {
+    height: 40px;
+    background-image: repeating-linear-gradient(45deg, 
+        var(--accent) 0px, var(--accent) 10px,
+        transparent 10px, transparent 20px);
+    opacity: 0.2;
+    margin: 40px 0;
+}
+
+/* Section Styles */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Card Styles */
+.card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+/* Objectives Section */
+.objectives {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.objectives::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(196, 164, 132, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.objectives .card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light);
+}
+
+.objectives .card h3 {
+    color: var(--light);
+    border-color: var(--light);
+}
+
+/* Quote Section */
+.quote-section {
+    background-color: var(--secondary);
+    color: var(--light);
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+    position: relative;
+}
+
+.quote-section::before,
+.quote-section::after {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    opacity: 0.2;
+}
+
+.quote-section::before {
+    left: 20px;
+    top: 20px;
+}
+
+.quote-section::after {
+    right: 20px;
+    bottom: 20px;
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    color: inherit;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.footer p {
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer a:hover {
+    color: var(--light);
+    text-decoration: underline;
+}
+
+/* Floating Contact Button */
+.floating-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent);
+    color: var(--dark);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    z-index: 900;
+    font-weight: 500;
+}
+
+.floating-contact:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background-color: var(--secondary);
+    color: var(--light);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 12px;
+    position: absolute;
+    right: 0;
+    background: transparent;
+    border: none;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background-color: var(--light);
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-content {
+        justify-content: flex-start;
+    }
+
+    .nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav ul.active {
+        display: flex;
+    }
+
+    .nav ul li {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        text-align: left;
+    }
+
+    .nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .header h1 {
+        font-size: 3rem;
+    }
+
+    .header h2 {
+        font-size: 1.8rem;
+    }
+
+    .header h3 {
+        font-size: 1.4rem;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .quote-section {
+        font-size: 1.2rem;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .header h2 {
+        font-size: 1.5rem;
+    }
+
+    .header h3 {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 40px 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .floating-contact {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .floating-contact:hover {
+        transform: none;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav" role="navigation">
+        <div class="nav-content">
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#art-forms">Art Forms</a></li>
+                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="header" id="home">
+        <img src="folk.png" alt="FOLK Logo" class="logo">
+        <h1>FOLK</h1>
+        <h2>    Friends of Lok Kala</h2>
+        <h3>Preserving and Revitalizing Rural Artistic Heritage</h3>
+    </header>
+
+    <div class="folk-pattern" role="presentation"></div>
+
+    <main>
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>We are dedicated to revitalizing artistic expression in rural communities, addressing the challenges of limited community engagement and cultural heritage loss through innovative programs and sustainable initiatives.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Approach</h3>
+                    <p>Through skill development workshops, performance opportunities, and dedicated art spaces, we create a vibrant ecosystem for traditional arts to flourish while respecting their cultural significance.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Impact</h3>
+                    <p>We collaborate with local organizations and cultural institutions to ensure increased participation and preservation of traditional art forms, benefiting both artists and communities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="art-forms">
+            <h2>Traditional Art Forms</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Music</h3>
+                    <p>Classical instruments, folk songs, and traditional vocal styles that carry stories of our heritage through generations.</p>
+                </div>
+                <div class="card">
+                    <h3>Dance</h3>
+                    <p>Traditional dance forms that express cultural narratives through rhythm, movement, and gesture.</p>
+                </div>
+                <div class="card">
+                    <h3>Crafts</h3>
+                    <p>Indigenous crafts and handloom traditions that showcase local materials and time-honored techniques.</p>
+                </div>
+                <div class="card">
+                    <h3>Theater</h3>
+                    <p>Folk theater forms that combine music, dance, and storytelling to preserve local legends and social messages.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-section" role="complementary">
+            "Preserving our artistic heritage is not just about maintaining traditions - it's about keeping our cultural soul alive."
+        </div>
+
+        <section class="objectives" id="objectives">
+            <h2>Our Objectives</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Revitalize Traditional Art</h3>
+                    <p>Preserve and revive endangered art forms through systematic documentation, practice, and innovation while maintaining their authentic essence.</p>
+                </div>
+                <div class="card">
+                    <h3>Empower Villagers</h3>
+                    <p>Provide artistic skills and growth opportunities for rural communities to express themselves and maintain their cultural identity.</p>
+                </div>
+                <div class="card">
+                    <h3>Foster Community</h3>
+                    <p>Strengthen community bonds through shared artistic experiences and cultural exchange programs that celebrate diversity.</p>
+                </div>
+                <div class="card">
+                    <h3>Create Opportunities</h3>
+                    <p>Develop sustainable livelihood opportunities through art and handicrafts while ensuring fair compensation for artists.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="process">
+            <h2>Our Process</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Assessment</h3>
+                    <p>Comprehensive needs assessment and community engagement to understand local artistic needs and cultural contextthrough surveys and direct community participation.</p>
+                </div>
+                <div class="card">
+                    <h3>Planning</h3>
+                    <p>Development of detailed project plans including funding sources, master artisans as instructors, and appropriate venues for maximum community impact and engagement.</p>
+                </div>
+                <div class="card">
+                    <h3>Implementation</h3>
+                    <p>Execution of workshops, performances, and cultural exchange programs with focus on quality and authenticity while adapting to modern contexts.</p>
+                </div>
+                <div class="card">
+                    <h3>Evaluation</h3>
+                    <p>Regular monitoring and evaluation for continuous improvement and impact assessment in consultation with community stakeholders to ensure sustainable growth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="folk-pattern" role="presentation"></div>
+
+    <footer class="footer" id="contact" role="contentinfo">
+        <h2>Join Our Mission</h2>
+        <p>Help us preserve and promote India's rich artistic traditions</p>
+        <p>Together, we can ensure our cultural heritage thrives for generations to come</p>
+        <address style="margin-top: 20px;">
+            <p>Email: <a href="mailto:info@folk.org" style="color: var(--accent);">info@folk.org</a></p>
+            <p>Phone: <a href="tel:+919876543210" style="color: var(--accent);">+91 98765 43210</a></p>
+        </address>
+    </footer>
+
+    <a href="#contact" class="floating-contact" aria-label="Contact us">Contact Us</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav ul');
+
+            menuToggle.addEventListener('click', () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                menuToggle.classList.toggle('active');
+                navList.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navList.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Smooth scrolling with keyboard accessibility
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        targetElement.focus();
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Apply animations to cards
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Keyboard navigation improvements
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navList.classList.contains('active')) {
+                    menuToggle.click();
+                }
+            });
+        });
+
+        // Handle reduced motion preferences
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (mediaQuery.matches) {
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.opacity = 1;
+                card.style.transform = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
